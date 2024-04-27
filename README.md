@@ -1,10 +1,21 @@
 # sway-wscap
 
+Screen share a workspace instead of your entire screen, great for privacy.
+
 *Preface: This is pretty hacky and a complete bodge. It still works fine, though.*
+
+## Features:
+
+* Works with multiple monitors.
+* Works with multiple applications at the same time.
+* Choose between full output and per workspace capture.
 
 ## Installation:
 
-Clone the repo: `git clone https://github.com/iguanajuice/sway-wscap`
+Clone the repo:
+```
+git clone https://github.com/iguanajuice/sway-wscap
+```
 
 "Install" executables:
 ```
