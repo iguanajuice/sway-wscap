@@ -69,7 +69,7 @@ First downside is small, but that is "workspace wrapping" when scrolling swaybar
 Second, if switching between workspaces, the capture may sometimes not resume for up to a second or two (I know, devastating). 
 However, the workspace switching itself is *always* responsive, so normal usage is not impeded.
 
-Also, rapidly scrolling a bunch can *sometimes* cause the wrong workspace to show. So uh, don't do that.
+Also, rapidly scrolling through workspaces can *sometimes* cause the wrong workspace to show. So uh, don't do that.
 
-Third, when clicking the workspace numbers in swaybar instead of scrolling, capture is not paused.
+Finally, when clicking the workspace numbers in swaybar instead of scrolling, capture is not paused.
 Although, this can be used as a way of temporarily showing a workspace, so *it's not a bug, it's a feature.* 
