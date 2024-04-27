@@ -2,19 +2,14 @@
 
 sleep 0.1 # wait briefly for xdpw pipewire object to spawn
 
-swaymsg focus output $1 # fixes weird bug, dont ask
-
-export CHOICE=$(
-	swaynag -t warning -m 'Choose what to capture:' \
-			-z 'Capture entire output' 'echo 2' \
-			-z 'Just this workspace' 'echo 1'
-)
+export OUTPUT=$1
+export CHOICE=$2
 
 pw-link -lI | tail -n2 | awk 'ORS="," {print $3","$1}' >> /dev/shm/sway-wscap-pwlinks
 
 if [ $CHOICE -eq 1 ]
 then
-	swaymsg -t get_workspaces | jq ".[] | select(.visible) | select(.output==\"$1\") | .num" \
+	swaymsg -t get_workspaces | jq ".[] | select(.visible) | select(.output==\"$OUTPUT\") | .num" \
     	>> /dev/shm/sway-wscap-pwlinks
 else
 	echo , >> /dev/shm/sway-wscap-pwlinks

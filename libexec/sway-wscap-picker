@@ -6,4 +6,12 @@ export OUTPUT=`slurp -f %o -or`
 [ $OUTPUT -z ] && exit 1
 echo $OUTPUT
 
-`dirname $0`/sway-wscap $OUTPUT &
+swaymsg focus output $OUTPUT # fixes weird bug, dont ask
+
+export CHOICE=$(
+	swaynag -t warning -m 'Choose what to capture:' \
+			-z 'Capture entire output' 'echo 2' \
+			-z 'Just this workspace' 'echo 1'
+)
+
+`dirname $0`/sway-wscap $OUTPUT $CHOICE &
