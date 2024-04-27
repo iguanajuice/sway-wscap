@@ -5,7 +5,9 @@ sleep 0.1 # wait briefly for xdpw pipewire object to spawn
 export OUTPUT=$1
 export CHOICE=$2
 
-pw-link -lI | tail -n2 | awk 'ORS="," {print $3","$1}' >> /dev/shm/sway-wscap-pwlinks
+export RULE=`pw-link -lI | tail -n2 | awk 'ORS="," {print $3","$1}'`
+grep -q $RULE /dev/shm/sway-wscap-pwlinks && exit 1
+echo -n $RULE >> /dev/shm/sway-wscap-pwlinks
 
 if [ $CHOICE -eq 1 ]
 then
