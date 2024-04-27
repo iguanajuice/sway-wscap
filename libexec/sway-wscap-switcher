@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if pw-link -o | grep -q xdg-desktop-portal-wlr
+then
+    for i in `pw-link -lI | grep xdg-desktop-portal-wlr | awk 'NR>1 {print $1}'`
+    do
+        pw-link -d $i
+    done
+
+    swaymsg workspace $1
+
+    pidof -o $$ -x `basename $0` && exit # check for other instances
+
+    for i in `cat /dev/shm/sway-wscap-pwlinks`
+    do
+        for j in `swaymsg -t get_workspaces | jq '.[] | select(.visible) | .num'`
+        do
+        	export WS=`echo $i | awk -F, '{print $5}'`
+
+        	[ $WS -eq $j ] || [ $WS -z ] && \
+        		pw-link `echo $i | awk -F, '{print $3}'` `echo $i | awk -F, '{print $2}'`
+        done
+    done
+else
+    swaymsg workspace $1
+fi

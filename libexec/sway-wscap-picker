@@ -1,0 +1,9 @@
+#!/bin/sh
+
+pw-link -i | grep -q :input_1 || rm /dev/shm/sway-wscap-pwlinks # clear shm if no video inputs are present
+
+export OUTPUT=`slurp -f %o -or`
+[ $OUTPUT -z ] && exit 1
+echo $OUTPUT
+
+`dirname $0`/sway-wscap $OUTPUT &
