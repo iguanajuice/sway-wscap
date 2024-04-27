@@ -17,7 +17,7 @@ then
         do
         	export WS=`echo $i | awk -F, '{print $5}'`
 
-        	[ $WS -eq $j ] || [ $WS -z ] && \
+        	[ $WS -eq $j ] || [ -z $WS ] && \
         		pw-link `echo $i | awk -F, '{print $3" "$2}'`
         done
     done

@@ -3,15 +3,14 @@
 pw-link -i | grep -q :input_1 || rm /dev/shm/sway-wscap-pwlinks # clear shm if no video inputs are present
 
 export OUTPUT=`slurp -f %o -or`
-[ $OUTPUT -z ] && exit 1
-echo $OUTPUT
-
 swaymsg focus output $OUTPUT # fixes weird bug, dont ask
-
 export CHOICE=$(
 	swaynag -t warning -m 'Choose what to capture:' \
 			-z 'Capture entire output' 'echo 2' \
 			-z 'Just this workspace' 'echo 1'
 )
 
+[ -z $OUTPUT ] || [ -z $CHOICE ] && exit 1
+
+echo $OUTPUT
 `dirname $0`/sway-wscap $OUTPUT $CHOICE &
