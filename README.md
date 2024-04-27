@@ -25,7 +25,6 @@ Edit your Sway configururation so that workspace switching is done using `sway-w
 
 *Go from this:*
 ```
-...
 # Switch to workspace
 bindsym $mod+grave workspace 0
 bindsym $mod+1 workspace 1
@@ -36,7 +35,6 @@ bindsym $mod+4 workspace 4
 ```
 *To something like this:*
 ```
-...
 # Switch to workspace
 set $workspace exec /usr/local/libexec/sway-wscap-switcher
 bindsym $mod+grave $workspace 0
