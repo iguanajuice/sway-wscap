@@ -2,8 +2,6 @@
 
 Screen share a workspace instead of your entire screen, great for privacy.
 
-*Preface: This is pretty hacky and a complete bodge. It still works fine, though.*
-
 ## Features:
 
 * Works with multiple monitors.
