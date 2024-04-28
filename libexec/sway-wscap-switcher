@@ -19,7 +19,7 @@ then
         	if [ $WS -eq $j ] || [ -z $WS ]
         	then
         		pw-link `echo $i | awk -F, '{print $3" "$2}'` \
-                    && break \
+        			&& break \
         			|| sed -i "/$i/d" /dev/shm/sway-wscap-pwlinks # keep shm file tidy
         	fi
         done
