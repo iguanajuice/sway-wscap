@@ -20,7 +20,7 @@ Third, some actions may cause this script to malfunction, see below:
 
 ### Don'ts:
 * Do not move the captured workspace to an other output
-* Do not click the workspace numbers in swaybar (unless you want to temporarily show another workspace)
+* Do not click the workspace numbers in swaybar (unless you want to temporarily show that workspace)
 * Do not rapidly scroll swaybar, may sometimes cause the wrong workspace to be captured
 
 ## Installation:
