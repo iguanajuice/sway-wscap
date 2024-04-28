@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if pw-link -o | grep -q xdg-desktop-portal-wlr
+if pw-link -o | grep -q xdg-desktop-portal-wlr # check for video portal
 then
     for i in `pw-link -lI | grep xdg-desktop-portal-wlr | awk 'NR>1 {print $1}'`
     do
