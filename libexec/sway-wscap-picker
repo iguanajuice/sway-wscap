@@ -1,6 +1,12 @@
 #!/bin/sh
 
-export OUTPUT=`slurp -f %o -or`
+export GET_OUTPUTS=`swaymsg -t get_outputs`
+if [ `echo $GET_OUTPUTS | jq length` -eq 1 ]
+then
+	export OUTPUT=`echo $GET_OUTPUTS | jq -r '.[] | .name'`
+else
+	export OUTPUT=`slurp -f %o -or`
+fi
 [ -z $OUTPUT ] && exit 1
 echo $OUTPUT
 
