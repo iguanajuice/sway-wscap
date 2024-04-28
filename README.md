@@ -5,9 +5,23 @@ Screen share a workspace instead of your entire screen, great for privacy.
 ## Features:
 
 * Works with multiple monitors
-* Works with multiple applications at the same time
+* Works with multiple applications capturing at the same time
 * Choose between full output and per workspace capture
-* Can run using `dash` instead of `bash` for extra performance
+* Can run using `dash` instead of `bash` for a bit of extra performance
+
+## Downsides:
+
+First downside is small, but that is "workspace wrapping" when scrolling swaybar.
+
+Second, if switching between workspaces, the capture may sometimes not resume for up to a second or two (I know, devastating).
+However, the workspace switching itself is *always* responsive, so normal usage is not impeded.
+
+Third, some actions may cause this script to malfunction, see below:
+
+### Don'ts:
+* Do not move the captured workspace to an other output
+* Do not click the workspace numbers in swaybar (unless you want to temporarily show another workspace)
+* Do not rapidly scroll swaybar, may sometimes cause the wrong workspace to be captured
 
 ## Installation:
 
@@ -62,15 +76,3 @@ bindsym button4 $workspace prev_on_output
 bindsym button5 $workspace next_on_output
 ```
 *User's of other bars, you should be smart enough to figure this out.*
-
-## Downsides?
-
-First downside is small, but that is "workspace wrapping" when scrolling swaybar.
-
-Second, if switching between workspaces, the capture may sometimes not resume for up to a second or two (I know, devastating). 
-However, the workspace switching itself is *always* responsive, so normal usage is not impeded.
-
-Also, rapidly scrolling through workspaces can *sometimes* cause the wrong workspace to show. So uh, don't do that.
-
-Finally, when clicking the workspace numbers in swaybar instead of scrolling, capture is not paused.
-Although, this can be used as a way of temporarily showing a workspace, so *it's not a bug, it's a feature.* 
