@@ -12,6 +12,14 @@ echo $OUTPUT
 
 swaymsg focus output $OUTPUT # fixes weird bug, dont ask
 
+# keep shm file tidy
+export INLINKS=`pw-link -iI | awk '{print $1}'`
+for i in `cat /dev/shm/sway-wscap-pwlinks`
+do
+	echo $INLINKS | grep -q `echo $i | awk -F, '{print $2}'` \
+		|| sed -i "/$i/d" /dev/shm/sway-wscap-pwlinks
+done
+
 export CHOICE=$(
 	swaynag -t warning -m 'Choose what to capture:' \
 			-s 'Capture entire output' \
