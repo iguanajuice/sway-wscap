@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x
 
 sleep 0.1 # wait briefly for xdpw pipewire object to spawn
 
